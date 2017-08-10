@@ -10,6 +10,8 @@ namespace LemonaidStand
     {
         static void Main(string[] args)
         {
+            Game stand = new Game();
+            stand.RunGame();
         }
     }
 }
