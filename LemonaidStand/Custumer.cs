@@ -11,7 +11,7 @@ namespace LemonaidStand
     {
         public int CupsSold;
         public Day peoplePerDay = new Day();
-        public int chanceOfBuying = 50;
+        public int chanceOfBuying;
         
         public Customer()
         {

@@ -8,8 +8,10 @@ namespace LemonaidStand
 {
     public class Cup
     {
+        
         public Cup()
         {
+            
 
         }
     }

@@ -62,15 +62,31 @@ namespace LemonaidStand
             }
 
         }
+        public void SetALimitToBuy()
+        {
+            Customer customer = new Customer();
+            customer.chanceOfBuying += 40;
+            if(customer.chanceOfBuying > 100)
+            {
+                customer.chanceOfBuying = 100;
+            }
+            else if(customer.chanceOfBuying < 0)
+            {
+                customer.chanceOfBuying = 0;
+            }
+        }
         public void runLoop()
         {
             for (int i = 0; i <= howManyPeople; i++)
             {
                 Customer customer = new Customer();
-                customer.chanceOfBuying += 40;
-                int sexyMoms = random.Next(1, 100);
-                if (sexyMoms > 50)
+                Game game = new Game();
+                SetALimitToBuy();
+                int dailyPeople = random.Next(1, 100);
+                if ( dailyPeople > 50)
                    customer.CupsSold ++;
+               
+               
                 else
                 {
 

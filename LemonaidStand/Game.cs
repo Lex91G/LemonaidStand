@@ -30,35 +30,36 @@ namespace LemonaidStand
         }
         public void Display()
         {
-            Console.WriteLine("The Lemonaid stand \n The point of the game is to buy as limited lemons sugar and cups as you need. But just enough to finish up a days work of selling lemonaid. After 7 days that will be it. Try getting the highest income and make the most money.");
+            Console.WriteLine("The Lemonaid stand \nThe point of the game is to buy as limited lemons sugar and cups as you need. But just enough to finish up a days work of selling lemonaid. After 7 days that will be it. Try getting the highest income and make the most money.");
             Console.ReadLine();
         }
         public static void DisplayInventory(Player player)
         {
-            Console.WriteLine("Cups: " + player.backpack.cup + "\n Ice: " + player.backpack.ice + "\n Lemons: " + player.backpack.lemons + "\n Sugar(cups): " + player.backpack.sugar + "\n Cash: " + player.backpack.money);
+            Console.WriteLine("Cups: " + player.backpack.cup + "\nIce: " + player.backpack.ice + "\nLemons: " + player.backpack.lemons + "\nSugar(cups): " + player.backpack.sugar + "\nCash: " + player.backpack.money);
             Console.ReadLine();
         }
-        public void Mainmenu()
+        public void Mainmenu(Player player)
         {
-            Console.WriteLine("Would you like to  buy items before you leave for the day? \n 1 = Go to store \n 2 = Get down to business");
+            Console.WriteLine("Would you like to  buy items before you leave for the day? \n1 = Go to store \n2 = Get down to business");
             string MainMenuQuestion = Console.ReadLine();
-            if (MainMenuQuestion == "1") {
+            if (MainMenuQuestion == "1")
+            {
                 store.BuyProducts(player);
             }
             else if(MainMenuQuestion == "2")
             {
-                // run day
+                ChoosingWhichRecipe(player);
             }
             else
             {
                 Console.WriteLine("Sorry invalid answer. Try again");
                 Console.ReadLine();
-                Mainmenu();
+                Mainmenu(player);
             }
         }
-        public void ChoosingWhichRecipe()
+        public void ChoosingWhichRecipe(Player player)
         {
-            Console.WriteLine("Pick a recipe to make for the day ");
+            Console.WriteLine("Pick a recipe to make for the day \n1 = Create Your Own \n2 = Summer Day Lemonaid\n3 = The Peoples Champ Lemondaid \n4 = Lemony Lemonaid \n5 = Strong Burst Lemonaid \n6 = On A Budget Lemonaid \n7 = Main Menu ");
             int numberOfRecipe = int.Parse(Console.ReadLine());
             switch (numberOfRecipe)
             {
@@ -85,12 +86,12 @@ namespace LemonaidStand
                     player.recipe.CreateCheapRecipe();
                     break;
                 case 7:
-                    //Main menu
+                    Mainmenu(player);
                     break;
                 default:
                     Console.WriteLine("Invalid answer please try again");
                     Console.ReadLine();
-                    ChoosingWhichRecipe();
+                    ChoosingWhichRecipe(player);
                     return;
             }
         }
@@ -157,7 +158,7 @@ namespace LemonaidStand
 
             // the below will probably be in a loop
             DisplayInventory(player);
-            Mainmenu();
+            Mainmenu(player);
         }
         
         

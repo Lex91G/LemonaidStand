@@ -10,6 +10,7 @@ namespace LemonaidStand
     {
         Player player;
         Inventory backPack;
+        Game game;
         public Store(Player player)
         {
             this.player = player;
@@ -24,20 +25,20 @@ namespace LemonaidStand
             switch (productSelection)
             {
                 case "1":
-
+                    CupBuy(player);
                     break;
                 case "2":
-
+                    IceBuy(player);
                     break;
 
                 case "3":
-
+                    LemonBuy(player);
                     break;
                 case "4":
-
+                    SugarBuy(player);
                     break;
                 case "5":
-
+                    game.Mainmenu(player); 
                     break;
                 default:
                     Console.WriteLine("Sorry invalid answer. Try again");
@@ -54,30 +55,56 @@ namespace LemonaidStand
             switch (cupBuyAnswer)
             {
                 case "1":
-                    for (int i = 0; i < 30; i++)
+                    if (player.backpack.money <= .30)
                     {
-                        Cup cup = new Cup();
-                        player.backpack.cup.Add(cup);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= .30;
+                    else
+                    {
+                        for (int i = 0; i < 30; i++)
+                        {
+                            Cup cup = new Cup();
+                            player.backpack.cup.Add(cup);
+                        }
+                        player.backpack.money -= .30;
+                    }
                     break;
 
                 case "2":
-                    for (int i = 0; i < 75; i++)
+                    if (player.backpack.money <= .60)
                     {
-                        Cup cup = new Cup();
-                        player.backpack.cup.Add(cup);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= .60;
-                    break;
+                    else
+                    {
+                        for (int i = 0; i < 75; i++)
+                        {
+                            Cup cup = new Cup();
+                            player.backpack.cup.Add(cup);
+
+                        }
+                        player.backpack.money -= .60;
+                    }
+                        break;
+                    
 
                 case "3":
-                    for (int i = 0; i < 150; i++)
+                    if (player.backpack.money <= 1.00)
                     {
-                        Cup cup = new Cup();
-                        player.backpack.cup.Add(cup);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= 1.00;
+                    else
+                    { 
+                        for (int i = 0; i < 150; i++)
+                        {
+                            Cup cup = new Cup();
+                            player.backpack.cup.Add(cup);
+                        }
+                        player.backpack.money -= 1.00;
+                    }
                     break;
                 case "4":
                     BuyProducts(player);
@@ -98,30 +125,54 @@ namespace LemonaidStand
             switch (iceBuyAnswer)
             {
                 case "1":
-                    for (int i = 0; i < 75; i++)
+                    if (player.backpack.money <= .60)
                     {
-                        Ice ice = new Ice();
-                        player.backpack.ice.Add(ice);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= .60;
+                    else
+                    {
+                        for (int i = 0; i < 75; i++)
+                        {
+                            Ice ice = new Ice();
+                            player.backpack.ice.Add(ice);
+                        }
+                        player.backpack.money -= .60;
+                    }
                     break;
 
                 case "2":
-                    for (int i = 0; i < 150; i++)
+                    if (player.backpack.money <= 1.00)
                     {
-                        Ice ice = new Ice();
-                        player.backpack.ice.Add(ice);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= 1.00;
+                    else
+                    {
+                        for (int i = 0; i < 150; i++)
+                        {
+                            Ice ice = new Ice();
+                            player.backpack.ice.Add(ice);
+                        }
+                        player.backpack.money -= 1.00;
+                    }
                     break;
 
                 case "3":
-                    for (int i = 0; i < 250; i++)
+                    if (player.backpack.money <= 1.50)
                     {
-                        Ice ice = new Ice();
-                        player.backpack.ice.Add(ice);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= 1.50;
+                    else
+                    {
+                        for (int i = 0; i < 250; i++)
+                        {
+                            Ice ice = new Ice();
+                            player.backpack.ice.Add(ice);
+                        }
+                        player.backpack.money -= 1.50;
+                    }
                     break;
 
                 case "4":
@@ -144,38 +195,57 @@ namespace LemonaidStand
             switch (lemonBuyAnswer)
             {
                 case "1":
-                    
-                        // player.backpack.lemons += 30;
+                    if (player.backpack.money <= 1.00)
+                    {
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
                         for (int i = 0; i < 30; i++)
                         {
                             Lemons lemon = new Lemons();
                             player.backpack.lemons.Add(lemon);
                         }
                         player.backpack.money -= 1.00;
-
+                    }
                         break;
                     
 
 
                 case "2":
-                    
+                    if (player.backpack.money <= 1.50)
+                    {
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
                         for (int i = 0; i < 75; i++)
                         {
                             Lemons lemon = new Lemons();
                             player.backpack.lemons.Add(lemon);
                         }
                         player.backpack.money -= 1.50;
+                    }
                         break;
                     
 
                 case "3":
-                    
+                    if (player.backpack.money <= 2.00)
+                    {
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
                         for (int i = 0; i < 150; i++)
                         {
                             Lemons lemon = new Lemons();
                             player.backpack.lemons.Add(lemon);
                         }
                         player.backpack.money -= 2.00;
+                    }
                         break;
                     
                 case "4":
@@ -197,30 +267,54 @@ namespace LemonaidStand
             switch (sugarBuyAnswer)
             {
                 case "1":
-                    for (int i = 0; i < 30; i++)
+                    if (player.backpack.money <= 1.00)
                     {
-                        Sugar sugar = new Sugar();
-                        player.backpack.sugar.Add(sugar);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= 1.00;
+                    else
+                    {
+                        for (int i = 0; i < 30; i++)
+                        {
+                            Sugar sugar = new Sugar();
+                            player.backpack.sugar.Add(sugar);
+                        }
+                        player.backpack.money -= 1.00;
+                    }
                     break;
 
                 case "2":
-                    for (int i = 0; i < 75; i++)
+                    if (player.backpack.money <= 1.50)
                     {
-                        Sugar sugar = new Sugar();
-                        player.backpack.sugar.Add(sugar);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= 1.50;
+                    else
+                    {
+                        for (int i = 0; i < 75; i++)
+                        {
+                            Sugar sugar = new Sugar();
+                            player.backpack.sugar.Add(sugar);
+                        }
+                        player.backpack.money -= 1.50;
+                    }
                     break;
 
                 case "3":
-                    for (int i = 0; i < 150; i++)
+                    if (player.backpack.money <= 2.00)
                     {
-                        Sugar sugar = new Sugar();
-                        player.backpack.sugar.Add(sugar);
+                        Console.WriteLine("Sorry not enough money");
+                        Console.ReadLine();
                     }
-                    player.backpack.money -= 2.00;
+                    else
+                    {
+                        for (int i = 0; i < 150; i++)
+                        {
+                            Sugar sugar = new Sugar();
+                            player.backpack.sugar.Add(sugar);
+                        }
+                        player.backpack.money -= 2.00;
+                    }
                     break;
                 case "4":
                     BuyProducts(player);

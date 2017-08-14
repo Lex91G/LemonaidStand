@@ -8,5 +8,9 @@ namespace LemonaidStand
 {
     public class Sugar
     {
+        public Sugar()
+        {
+
+        }
     }
 }

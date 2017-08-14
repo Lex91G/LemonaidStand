@@ -8,5 +8,9 @@ namespace LemonaidStand
 {
     public class Ice
     {
+        public Ice()
+        {
+
+        }
     }
 }
