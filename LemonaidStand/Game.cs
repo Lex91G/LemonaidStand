@@ -9,10 +9,10 @@ namespace LemonaidStand
     public class Game
     {
         
-        Customer customer;
+        
 
         Player player;
-        Weather weather;
+        Weather weather = new Weather();
         Store store;
 
         public Game()
@@ -35,7 +35,7 @@ namespace LemonaidStand
         }
         public static void DisplayInventory(Player player)
         {
-            Console.WriteLine("Cups: " + player.backpack.cup + "\nIce: " + player.backpack.ice + "\nLemons: " + player.backpack.lemons + "\nSugar(cups): " + player.backpack.sugar + "\nCash: " + player.backpack.money);
+            Console.WriteLine("Cups: " + player.backpack.cup.Count + "\nIce: " + player.backpack.ice.Count + "\nLemons: " + player.backpack.lemons.Count + "\nSugar(cups): " + player.backpack.sugar.Count + "\nCash: " + player.backpack.money);
             Console.ReadLine();
         }
         public void Mainmenu(Player player)
@@ -64,26 +64,33 @@ namespace LemonaidStand
             switch (numberOfRecipe)
             {
                 case 1:
-                    player.recipe.CreateYourOwnRecipe();
+                    Recipe recipe1 = new Recipe();
+                    recipe1.CreateYourOwnRecipe(player);
                     break;
 
                 case 2:
-                    player.recipe.CreateBestRecipe();
+                    Recipe recipe2 = new Recipe();
+                    recipe2.CreateBestRecipe(player);
                     break;
 
                 case 3:
-                    player.recipe.CreateSecondBest();
+                    Recipe recipe3 = new Recipe();
+                    recipe3.CreateSecondBest(player);
+                    
                     break;
 
                 case 4:
-                    player.recipe.CreateLemonRecipe();
+                    Recipe recipe4 = new Recipe();
+                    recipe4.CreateLemonRecipe(player);
                     break;
 
                 case 5:
-                    player.recipe.CreateSugarLemonaid();
+                    Recipe recipe5 = new Recipe();
+                    recipe5.CreateSugarLemonaid(player);
                     break;
                 case 6:
-                    player.recipe.CreateCheapRecipe();
+                    Recipe recipe6 = new Recipe();
+                    recipe6.CreateCheapRecipe(player);
                     break;
                 case 7:
                     Mainmenu(player);
@@ -101,51 +108,51 @@ namespace LemonaidStand
             double answerForPerCup = double.Parse(Console.ReadLine());
             if (answerForPerCup >= .25)
             {
-                customer.chanceOfBuying += 15/100;
+                Customer.chanceOfBuying += 15/100;
             }
             else if (answerForPerCup < .25 && answerForPerCup >= .50)
             {
-                customer.chanceOfBuying += 10/100;
+                Customer.chanceOfBuying += 10/100;
             }
             else if (answerForPerCup < .50 && answerForPerCup >= .75)
             {
-                customer.chanceOfBuying += 5/100;
+                Customer.chanceOfBuying += 5/100;
             }
             else if (answerForPerCup < .75 && answerForPerCup >= 1.25)
             {
-                customer.chanceOfBuying += 0/100;
+                Customer.chanceOfBuying += 0/100;
             }
             else if (answerForPerCup < 1.25 && answerForPerCup >= 1.50)
             {
-                customer.chanceOfBuying -= 5/100;
+                Customer.chanceOfBuying -= 5/100;
             }
             else if (answerForPerCup < 1.50 && answerForPerCup >= 1.75)
             {
-                customer.chanceOfBuying -= 10 / 100;
+                Customer.chanceOfBuying -= 10 / 100;
             }
             else if (answerForPerCup < 1.75 && answerForPerCup >= 2)
             {
-                customer.chanceOfBuying -= 15 / 100;
+                Customer.chanceOfBuying -= 15 / 100;
             }
             else if (answerForPerCup < 2 && answerForPerCup >= 2.25)
             {
-                customer.chanceOfBuying -= 20 / 100;
+                Customer.chanceOfBuying -= 20 / 100;
             }
             else if (answerForPerCup < 2.25 && answerForPerCup >= 2.50)
             {
-                customer.chanceOfBuying -= 25 / 100;
+                Customer.chanceOfBuying -= 25 / 100;
             }
             else if (answerForPerCup < 2.50 && answerForPerCup >= 2.75)
             {
-                customer.chanceOfBuying -= 30 / 100;
+                Customer.chanceOfBuying -= 30 / 100;
             }
             else if (answerForPerCup < 2.75 && answerForPerCup >= 3)
             {
-                customer.chanceOfBuying -= 35 / 100;
+                Customer.chanceOfBuying -= 35 / 100;
             }
             else if (answerForPerCup > 3)
             {
-                customer.chanceOfBuying -= 40 / 100;
+                Customer.chanceOfBuying -= 40 / 100;
             }
 
 
@@ -158,7 +165,10 @@ namespace LemonaidStand
 
             // the below will probably be in a loop
             DisplayInventory(player);
+            weather.GetForeCast();
+            Customer.BestWeather.int32.parse(weather.weatherOptions);
             Mainmenu(player);
+
         }
         
         

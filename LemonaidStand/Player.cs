@@ -15,7 +15,7 @@ namespace LemonaidStand
 
         }
 
-        public void ChooseRecipe()
+        public void ChooseRecipe(Player player)
         {
             Console.WriteLine("What recipe would you like to use for today?");
             string pickRecipe = Console.ReadLine();
@@ -25,7 +25,7 @@ namespace LemonaidStand
                 // console.wrtie line CHOOSE A RECIPE
                 // string userRecipe = Console.ReadLine();
                 case "1":
-                    recipe = recipe.CreateBestRecipe();
+                    recipe = recipe.CreateBestRecipe(player);
                     for (int i = 0; i < recipe.cups; i++)
                     {
                         backpack.cup.RemoveAt(i);
@@ -44,7 +44,7 @@ namespace LemonaidStand
                     }
                     break;
                 case "2":
-                    recipe = recipe.CreateSecondBest();
+                    recipe = recipe.CreateSecondBest(player);
                     for (int i = 0; i < recipe.cups; i++)
                     {
                         backpack.cup.RemoveAt(i);
@@ -63,7 +63,7 @@ namespace LemonaidStand
                     }
                     break;
                 case "3":
-                    recipe = recipe.CreateSugarLemonaid();
+                    recipe = recipe.CreateSugarLemonaid(player);
                     for (int i = 0; i < recipe.cups; i++)
                     {
                         backpack.cup.RemoveAt(i);
@@ -82,7 +82,7 @@ namespace LemonaidStand
                     }
                     break;
                 case "4":
-                    recipe = recipe.CreateSugarLemonaid();
+                    recipe = recipe.CreateSugarLemonaid(player);
                     for (int i = 0; i < recipe.cups; i++)
                     {
                         backpack.cup.RemoveAt(i);
@@ -101,7 +101,7 @@ namespace LemonaidStand
                     }
                     break;
                 case "5":
-                    recipe = recipe.CreateLemonRecipe();
+                    recipe = recipe.CreateLemonRecipe(player);
                     for (int i = 0; i < recipe.cups; i++)
                     {
                         backpack.cup.RemoveAt(i);
@@ -120,7 +120,7 @@ namespace LemonaidStand
                     }
                     break;
                 case "6":
-                    recipe = recipe.CreateCheapRecipe();
+                    recipe = recipe.CreateCheapRecipe(player);
                     for (int i = 0; i < recipe.cups; i++)
                     {
                         backpack.cup.RemoveAt(i);
@@ -144,7 +144,7 @@ namespace LemonaidStand
                 default:
                     Console.WriteLine("Invalid answer, please try again");
                     Console.ReadLine();
-                    ChooseRecipe();
+                    ChooseRecipe(player);
                     return;
             }
         }

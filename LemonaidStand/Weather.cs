@@ -8,10 +8,10 @@ namespace LemonaidStand
 {
     public class Weather
     {
+        
         Random random = new Random();
         public List <string> weatherOptions = new List<string> { "Sunny", "Sunny and warm", "Raining", "Raining and chilly", "Foggy and humid", "Foggy and chilly", "Snowy", "Windy", "Tornato", "Partly cloudy" };
-        public string todaysWeather;
-        int howManyPeople;   
+        public  static string todaysWeather;
         public Weather()
         {
         
@@ -19,8 +19,9 @@ namespace LemonaidStand
         }
         public void GetForeCast()
         {            
-            //int dailyWeatherOptions = random.Next(0, weatherOptions.Length);
-            //todaysWeather = weatherOptions[dailyWeatherOptions];
+            int dailyWeatherOptions = random.Next(0, weatherOptions.Count);
+            todaysWeather = weatherOptions[dailyWeatherOptions];
+            
         }
 
         

@@ -13,50 +13,53 @@ namespace LemonaidStand
         static int howManyPeople;
         public Weather weather = new Weather();
         Random random = new Random();
+        Customer custumer;
         public void day()
         {
 
         }   // call function to set howManyPeople
         public void DetermineHowManyPeople(Weather todaysWeather)
         {
-            if (weather.todaysWeather == "Sunny")
+            
+            if (Weather.todaysWeather == "Sunny")
             {
+                
                 howManyPeople = 140;
 
             }
-            else if (weather.todaysWeather == "Sunny and warm")
+            else if (Weather.todaysWeather == "Sunny and warm")
             {
                 howManyPeople = 150;
             }
-            else if (weather.todaysWeather == "Raining")
+            else if (Weather.todaysWeather == "Raining")
             {
                 howManyPeople = 80;
             }
-            else if (weather.todaysWeather == "Raining and chilly")
+            else if (Weather.todaysWeather == "Raining and chilly")
             {
                 howManyPeople = 60;
             }
-            else if (weather.todaysWeather == "Foggy and humid")
+            else if (Weather.todaysWeather == "Foggy and humid")
             {
                 howManyPeople = 100;
             }
-            else if (weather.todaysWeather == "Foggy and chilly")
+            else if (Weather.todaysWeather == "Foggy and chilly")
             {
                 howManyPeople = 70;
             }
-            else if (weather.todaysWeather == "Snowy")
+            else if (Weather.todaysWeather == "Snowy")
             {
                 howManyPeople = 30;
             }
-            else if (weather. todaysWeather == "Windy")
+            else if (Weather. todaysWeather == "Windy")
             {
                 howManyPeople = 90;
             }
-            else if (weather.todaysWeather == "Tornato")
+            else if (Weather.todaysWeather == "Tornato")
             {
                 howManyPeople = 3;
             }
-            else if (weather.todaysWeather == "Parlty cloudy")
+            else if (Weather.todaysWeather == "Parlty cloudy")
             {
                 howManyPeople = 125;
             }
@@ -64,15 +67,15 @@ namespace LemonaidStand
         }
         public void SetALimitToBuy()
         {
-            Customer customer = new Customer();
-            customer.chanceOfBuying += 40;
-            if(customer.chanceOfBuying > 100)
+            
+            Customer.chanceOfBuying += 40;
+            if(Customer.chanceOfBuying > 100)
             {
-                customer.chanceOfBuying = 100;
+                Customer.chanceOfBuying = 100;
             }
-            else if(customer.chanceOfBuying < 0)
+            else if(Customer.chanceOfBuying < 0)
             {
-                customer.chanceOfBuying = 0;
+                Customer.chanceOfBuying = 0;
             }
         }
         public void runLoop()
@@ -81,12 +84,14 @@ namespace LemonaidStand
             {
                 Customer customer = new Customer();
                 Game game = new Game();
-                SetALimitToBuy();
+               
                 int dailyPeople = random.Next(1, 100);
-                if ( dailyPeople > 50)
-                   customer.CupsSold ++;
-               
-               
+                if (dailyPeople > 50)
+                {
+                    SetALimitToBuy();
+                    customer.CupsSold++;
+                }
+
                 else
                 {
 

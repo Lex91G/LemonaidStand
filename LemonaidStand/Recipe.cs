@@ -13,7 +13,8 @@ namespace LemonaidStand
         public int sugar;
         public int ice;
         public int cups;
-        public int chanceOfBuying = 40;
+        Player player;
+        
 
 
 
@@ -49,58 +50,59 @@ namespace LemonaidStand
 
 
 
-        public Recipe CreateBestRecipe()
+        public Recipe CreateBestRecipe(Player player)
         {
             Recipe bestRecipe = new Recipe();
-            bestRecipe.lemons = 4;
-            bestRecipe.sugar = 4;
-            bestRecipe.ice = 5;
-            bestRecipe.cups = 1;
-            customer.chanceOfBuying = 10 / 100;
+            player.backpack.lemons.RemoveRange(1, 4);
+            player.backpack.sugar.RemoveRange(1, 4);
+            player.backpack.ice.RemoveRange(1, 5);
+            player.backpack.cup.RemoveRange(1, 1);
+            Customer.chanceOfBuying =+ 10;
             return bestRecipe;
         }
-        public Recipe CreateSecondBest()
+        public Recipe CreateSecondBest(Player player)
         {
             Recipe secondBest = new Recipe();
-            secondBest.lemons = 4;
-            secondBest.sugar = 3;
-            secondBest.ice = 7;
-            secondBest.cups = 1;
-            customer.chanceOfBuying = 8 / 100;
+            player.backpack.lemons.RemoveRange(1,4);
+            player.backpack.sugar.RemoveRange(1, 3);
+            player.backpack.ice.RemoveRange(1, 7);
+            player.backpack.cup.RemoveRange(1, 1); 
+            Customer.chanceOfBuying =+ 8;
             return secondBest;
         }
-        public Recipe CreateSugarLemonaid()
+        
+        public Recipe CreateSugarLemonaid(Player player)
         {
             Recipe sugarRecipe = new Recipe();
-            sugarRecipe.lemons = 3;
-            sugarRecipe.sugar = 5;
-            sugarRecipe.ice = 3;
-            sugarRecipe.cups = 1;
-            customer.chanceOfBuying = 7 / 100;
+            player.backpack.lemons.RemoveRange(1, 3);
+            player.backpack.sugar.RemoveRange(1,5);
+            player.backpack.ice.RemoveRange(1, 3);
+            player.backpack.cup.RemoveRange(1, 1);
+            Customer.chanceOfBuying = 7;
 
             return sugarRecipe;
         }
-        public Recipe CreateLemonRecipe()
+        public Recipe CreateLemonRecipe(Player player)
         {
             Recipe lemonRecipe = new Recipe();
-            lemonRecipe.lemons = 5;
-            lemonRecipe.sugar = 4;
-            lemonRecipe.ice = 4;
-            lemonRecipe.cups = 1;
-            customer.chanceOfBuying += 5 / 100;
+            player.backpack.lemons.RemoveRange(1,5);
+            player.backpack.sugar.RemoveRange(1, 4);
+            player.backpack.ice.RemoveRange(1, 4);
+            player.backpack.cup.RemoveRange(1, 1);
+            Customer.chanceOfBuying += 5;
             return lemonRecipe;
         }
-        public Recipe CreateCheapRecipe()
+        public Recipe CreateCheapRecipe(Player player)
         {
             Recipe cheapRecipe = new Recipe();
-            cheapRecipe.lemons = 1;
-            cheapRecipe.sugar = 1;
-            cheapRecipe.ice = 1;
-            cheapRecipe.cups = 1;
-            customer.chanceOfBuying -= 5 / 100;
+            player.backpack.lemons.RemoveRange(1, 1);
+            player.backpack.sugar.RemoveRange(1, 1);
+            player.backpack.ice.RemoveRange(1, 1);
+            player.backpack.cup.RemoveRange(1, 1);
+            Customer.chanceOfBuying -= 5;
             return cheapRecipe;
         }
-        public Recipe CreateYourOwnRecipe()
+        public Recipe CreateYourOwnRecipe(Player player)
         {
             Recipe createYourOwn = new Recipe();
             Console.WriteLine("How many lemons: ");
@@ -121,44 +123,45 @@ namespace LemonaidStand
         }
         public void IfElseLemonLikelyness()
         {
-            Recipe currentRecipe = CreateYourOwnRecipe();
+            Recipe currentRecipe = CreateYourOwnRecipe(player);
 
             if (currentRecipe.lemons > 5 || currentRecipe.lemons < 4)
             {
-                customer.chanceOfBuying -= 3;
+                Customer.chanceOfBuying -= 3;
             }
             else if(currentRecipe.lemons <= 6 || currentRecipe.lemons >= 4)
              {
-                customer.chanceOfBuying += 3;
+                Customer.chanceOfBuying += 3;
              }
         }
         public void IfElseSugarLikelyNess()
         {
-            Recipe currentRecipe = CreateYourOwnRecipe();
+            Recipe currentRecipe = CreateYourOwnRecipe(player);
             if (currentRecipe.ice >= 7 || currentRecipe.ice <= 4)
             {
-                customer.chanceOfBuying -= 3;
+                Customer.chanceOfBuying -= 3;
             }
             else if(currentRecipe.ice >= 7 || currentRecipe.ice <= 4)
              {
 
-                customer.chanceOfBuying += 3;
+                Customer.chanceOfBuying += 3;
             }
         }
         public void IfElseIceLikelyNess()
         {
-            Recipe currentRecipe = CreateYourOwnRecipe();
+            Recipe currentRecipe = CreateYourOwnRecipe(player);
             if (currentRecipe.sugar >= 5 || currentRecipe.sugar <= 4)
             {
-                customer.chanceOfBuying -= 3;
+                Customer.chanceOfBuying -= 3;
             }
             else if (currentRecipe.sugar >= 5 || currentRecipe.sugar <= 4)
              {
 
-                customer.chanceOfBuying += 3;
+                Customer.chanceOfBuying += 3;
             
             }
         }
+        
         
 
     }

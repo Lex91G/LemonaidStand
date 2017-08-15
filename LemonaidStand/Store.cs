@@ -38,6 +38,7 @@ namespace LemonaidStand
                     SugarBuy(player);
                     break;
                 case "5":
+                    Game game = new Game();
                     game.Mainmenu(player); 
                     break;
                 default:
@@ -49,7 +50,7 @@ namespace LemonaidStand
         }
         public void CupBuy(Player player)
         {
-            Console.WriteLine(player.backpack.cup);
+            Console.WriteLine(player.backpack.cup.Count);
             Console.WriteLine("How many cups would you like to buy? \n 1 = 30 cups .30$ \n 2 = 75 cups .60$ \n 3 = 150 cups 1.00$ \n 4 = Go back to store");
             string cupBuyAnswer = Console.ReadLine();
             switch (cupBuyAnswer)
@@ -116,10 +117,11 @@ namespace LemonaidStand
                     CupBuy(player);
                     return;
             }
+            BuyProducts(player);
         }
         public void IceBuy(Player player)
         {
-            Console.WriteLine(player.backpack.ice);
+            Console.WriteLine(player.backpack.ice.Count);
             Console.WriteLine("How much ice would you like to buy? \n 1 = 75 cubes .60$ \n 2 = 150 cubes 1.00$ \n 3 = 250 cups 1.50$ \n 4 = Go back to store");
             string iceBuyAnswer = Console.ReadLine();
             switch (iceBuyAnswer)
@@ -185,11 +187,11 @@ namespace LemonaidStand
                     IceBuy(player);
                     return;
             }
-
+            BuyProducts(player);
         }
         public void LemonBuy(Player player)
         {
-            Console.WriteLine(player.backpack.lemons);
+            Console.WriteLine(player.backpack.lemons.Count);
             Console.WriteLine("How many lemons would you like to buy? \n 1 = 30 lemons 1.00$ \n 2 = 75 lemons 1.50$ \n 3 = 150 lemons 2.00$ \n 4 = Go back to store");
             string lemonBuyAnswer = Console.ReadLine();
             switch (lemonBuyAnswer)
@@ -258,10 +260,11 @@ namespace LemonaidStand
                     LemonBuy(player);
                     return;
             }
+            BuyProducts(player);
         }
         public void SugarBuy(Player player)
         {
-            Console.WriteLine(player.backpack.sugar);
+            Console.WriteLine(player.backpack.sugar.Count);
             Console.WriteLine("How many cups of sugar would you like to buy? \n 1 = 30 cups 1.00$ \n 2 = 75 cups 1.50$ \n 3 = 150 cups 2.00$ \n 4 = Go back to store");
             string sugarBuyAnswer = Console.ReadLine();
             switch (sugarBuyAnswer)
@@ -326,6 +329,7 @@ namespace LemonaidStand
                     CupBuy(player);
                     return;
             }
+            BuyProducts(player);
         }
     }
 
