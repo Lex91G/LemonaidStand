@@ -25,17 +25,18 @@ namespace LemonaidStand
             switch (productSelection)
             {
                 case "1":
-                    CupBuy(player);
+                    CupBuy();
+                    BuyProducts(player);
                     break;
                 case "2":
-                    IceBuy(player);
+                    IceBuy();
                     break;
 
                 case "3":
-                    LemonBuy(player);
+                    LemonBuy();
                     break;
                 case "4":
-                    SugarBuy(player);
+                    SugarBuy();
                     break;
                 case "5":
                     Game game = new Game();
@@ -48,7 +49,7 @@ namespace LemonaidStand
                     return;
             }
         }
-        public void CupBuy(Player player)
+        public void CupBuy()
         {
             Console.WriteLine(player.backpack.cup.Count);
             Console.WriteLine("How many cups would you like to buy? \n 1 = 30 cups .30$ \n 2 = 75 cups .60$ \n 3 = 150 cups 1.00$ \n 4 = Go back to store");
@@ -108,18 +109,18 @@ namespace LemonaidStand
                     }
                     break;
                 case "4":
-                    BuyProducts(player);
+                    
                     break;
 
                 default:
                     Console.WriteLine("Invalid Answer. Try again");
                     Console.ReadLine();
-                    CupBuy(player);
+                    CupBuy();
                     return;
             }
-            BuyProducts(player);
+            
         }
-        public void IceBuy(Player player)
+        public void IceBuy()
         {
             Console.WriteLine(player.backpack.ice.Count);
             Console.WriteLine("How much ice would you like to buy? \n 1 = 75 cubes .60$ \n 2 = 150 cubes 1.00$ \n 3 = 250 cups 1.50$ \n 4 = Go back to store");
@@ -184,12 +185,12 @@ namespace LemonaidStand
                 default:
                     Console.WriteLine("Invalid Answer. Try again");
                     Console.ReadLine();
-                    IceBuy(player);
+                    IceBuy();
                     return;
             }
-            BuyProducts(player);
+            
         }
-        public void LemonBuy(Player player)
+        public void LemonBuy()
         {
             Console.WriteLine(player.backpack.lemons.Count);
             Console.WriteLine("How many lemons would you like to buy? \n 1 = 30 lemons 1.00$ \n 2 = 75 lemons 1.50$ \n 3 = 150 lemons 2.00$ \n 4 = Go back to store");
@@ -257,12 +258,12 @@ namespace LemonaidStand
                 default:
                     Console.WriteLine("Invalid Answer. Try again");
                     Console.ReadLine();
-                    LemonBuy(player);
+                    LemonBuy();
                     return;
             }
-            BuyProducts(player);
+            
         }
-        public void SugarBuy(Player player)
+        public void SugarBuy()
         {
             Console.WriteLine(player.backpack.sugar.Count);
             Console.WriteLine("How many cups of sugar would you like to buy? \n 1 = 30 cups 1.00$ \n 2 = 75 cups 1.50$ \n 3 = 150 cups 2.00$ \n 4 = Go back to store");
@@ -326,10 +327,10 @@ namespace LemonaidStand
                 default:
                     Console.WriteLine("Invalid Answer. Try again");
                     Console.ReadLine();
-                    CupBuy(player);
+                    CupBuy();
                     return;
             }
-            BuyProducts(player);
+            
         }
     }
 
