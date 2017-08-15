@@ -8,9 +8,9 @@ namespace LemonaidStand
 {
     public class Game
     {
-        
-        
 
+
+        Customer customer = new Customer();
         Player player;
         Weather weather = new Weather();
         Store store;
@@ -166,7 +166,7 @@ namespace LemonaidStand
             // the below will probably be in a loop
             DisplayInventory(player);
             weather.GetForeCast();
-            Customer.BestWeather.int32.parse(weather.weatherOptions);
+            customer.BestWeather();
             Mainmenu(player);
 
         }

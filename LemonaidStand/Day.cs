@@ -18,7 +18,7 @@ namespace LemonaidStand
         {
 
         }   // call function to set howManyPeople
-        public void DetermineHowManyPeople(Weather todaysWeather)
+        public void DetermineHowManyPeople(Weather weather)
         {
             
             if (Weather.todaysWeather == "Sunny")

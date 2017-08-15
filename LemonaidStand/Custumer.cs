@@ -18,15 +18,15 @@ namespace LemonaidStand
         {
 
         }
-        public void BestWeather(Weather weather);
+        public void BestWeather();
         {
-            day.DetermineHowManyPeople(weather);
-            if (Weather.todaysWeather == weather.weatherOptions[0])
+            
+            if (weather.todaysWeather == weather.weatherOptions[0])
             {
                 chanceOfBuying += 30 / 100;
                 
             }
-             else if (Weather.todaysWeather == weather.weatherOptions[1])
+             else if (weather.todaysWeather == weather.weatherOptions[1])
             {
                 chanceOfBuying += 40 / 100;
                 
