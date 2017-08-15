@@ -14,6 +14,7 @@ namespace LemonaidStand
         Player player;
         Weather weather = new Weather();
         Store store;
+        Day day = new Day();
 
         public Game()
         { player = new Player();
@@ -40,6 +41,7 @@ namespace LemonaidStand
         }
         public void Mainmenu(Player player)
         {
+            
             Console.WriteLine("Would you like to  buy items before you leave for the day? \n1 = Go to store \n2 = Get down to business");
             string MainMenuQuestion = Console.ReadLine();
             if (MainMenuQuestion == "1")
@@ -106,53 +108,53 @@ namespace LemonaidStand
         {
             Console.WriteLine("How much for a cup of lemonaid");
             double answerForPerCup = double.Parse(Console.ReadLine());
-            if (answerForPerCup >= .25)
+            if (answerForPerCup <= .25)
             {
-                Customer.chanceOfBuying += 15/100;
+                Customer.chanceOfBuying += 15;
             }
-            else if (answerForPerCup < .25 && answerForPerCup >= .50)
+            else if (answerForPerCup > .25 && answerForPerCup <= .50)
             {
-                Customer.chanceOfBuying += 10/100;
+                Customer.chanceOfBuying += 10;
             }
-            else if (answerForPerCup < .50 && answerForPerCup >= .75)
+            else if (answerForPerCup > .50 && answerForPerCup <= .75)
             {
-                Customer.chanceOfBuying += 5/100;
+                Customer.chanceOfBuying += 5;
             }
-            else if (answerForPerCup < .75 && answerForPerCup >= 1.25)
+            else if (answerForPerCup > .75 && answerForPerCup <= 1.25)
             {
-                Customer.chanceOfBuying += 0/100;
+                Customer.chanceOfBuying += 0;
             }
-            else if (answerForPerCup < 1.25 && answerForPerCup >= 1.50)
+            else if (answerForPerCup > 1.25 && answerForPerCup <= 1.50)
             {
-                Customer.chanceOfBuying -= 5/100;
+                Customer.chanceOfBuying -= 5;
             }
-            else if (answerForPerCup < 1.50 && answerForPerCup >= 1.75)
+            else if (answerForPerCup > 1.50 && answerForPerCup <= 1.75)
             {
-                Customer.chanceOfBuying -= 10 / 100;
+                Customer.chanceOfBuying -= 10;
             }
-            else if (answerForPerCup < 1.75 && answerForPerCup >= 2)
+            else if (answerForPerCup > 1.75 && answerForPerCup <= 2)
             {
-                Customer.chanceOfBuying -= 15 / 100;
+                Customer.chanceOfBuying -= 15;
             }
-            else if (answerForPerCup < 2 && answerForPerCup >= 2.25)
+            else if (answerForPerCup > 2 && answerForPerCup <= 2.25)
             {
-                Customer.chanceOfBuying -= 20 / 100;
+                Customer.chanceOfBuying -= 20;
             }
-            else if (answerForPerCup < 2.25 && answerForPerCup >= 2.50)
+            else if (answerForPerCup > 2.25 && answerForPerCup <= 2.50)
             {
-                Customer.chanceOfBuying -= 25 / 100;
+                Customer.chanceOfBuying -= 25;
             }
-            else if (answerForPerCup < 2.50 && answerForPerCup >= 2.75)
+            else if (answerForPerCup > 2.50 && answerForPerCup <= 2.75)
             {
-                Customer.chanceOfBuying -= 30 / 100;
+                Customer.chanceOfBuying -= 30;
             }
-            else if (answerForPerCup < 2.75 && answerForPerCup >= 3)
+            else if (answerForPerCup > 2.75 && answerForPerCup <= 3)
             {
-                Customer.chanceOfBuying -= 35 / 100;
+                Customer.chanceOfBuying -= 35;
             }
             else if (answerForPerCup > 3)
             {
-                Customer.chanceOfBuying -= 40 / 100;
+                Customer.chanceOfBuying -= 40;
             }
 
 
@@ -163,11 +165,22 @@ namespace LemonaidStand
         {
             Display();
 
-            // the below will probably be in a loop
+            //the below will probably be in a loop
             DisplayInventory(player);
             weather.GetForeCast();
-            customer.BestWeather();
+            Console.WriteLine("Todays weather is: ");
+            Console.WriteLine(Weather.todaysWeather);
+            Console.ReadLine();
             Mainmenu(player);
+            
+            customer.BestWeather(weather);
+            day.DetermineHowManyPeople(weather);
+            HowMuchPerCup();
+            day.SetALimitToBuy();
+            day.runLoop();
+            Console.WriteLine(customer.CupsSold);
+            Console.ReadLine();
+            
 
         }
         

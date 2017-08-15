@@ -12,58 +12,59 @@ namespace LemonaidStand
         public int CupsSold;
         public Day day = new Day();
         public static int chanceOfBuying;
+        Weather weather = new Weather();
         
         
         public Customer()
         {
 
         }
-        public void BestWeather();
+        public void BestWeather(Weather Weather)
         {
             
-            if (weather.todaysWeather == weather.weatherOptions[0])
+            if (Weather.todaysWeather == Weather.weatherOptions[0])
             {
-                chanceOfBuying += 30 / 100;
+                chanceOfBuying += 30;
                 
             }
-             else if (weather.todaysWeather == weather.weatherOptions[1])
+             else if (Weather.todaysWeather == Weather.weatherOptions[1])
             {
-                chanceOfBuying += 40 / 100;
+                chanceOfBuying += 40;
                 
             }
-            else if (Weather.todaysWeather == weather.weatherOptions[2])
+            else if (Weather.todaysWeather == Weather.weatherOptions[2])
             {
-                chanceOfBuying -= 10/100;
+                chanceOfBuying -= 10;
             }
 
-            else if (Weather.todaysWeather == weather.weatherOptions[3])
+            else if (Weather.todaysWeather == Weather.weatherOptions[3])
             {
-                chanceOfBuying -= 20/100;
+                chanceOfBuying -= 20;
             }
             
-             else if (Weather.todaysWeather == weather.weatherOptions[4])
+             else if (Weather.todaysWeather == Weather.weatherOptions[4])
             {
-                chanceOfBuying += 20/100;
+                chanceOfBuying += 20;
             }
-             else if (Weather.todaysWeather == weather.weatherOptions[5])
+             else if (Weather.todaysWeather == Weather.weatherOptions[5])
             {
-                chanceOfBuying += 0/100;
+                chanceOfBuying += 0;
             }
-              else if (Weather.todaysWeather == weather.weatherOptions[6])
+              else if (Weather.todaysWeather == Weather.weatherOptions[6])
             {
-                chanceOfBuying -= 30/100;
+                chanceOfBuying -= 30;
             }
-              else if (Weather.todaysWeather == weather.weatherOptions[7])
+              else if (Weather.todaysWeather == Weather.weatherOptions[7])
             {
-                chanceOfBuying += 0/100;
+                chanceOfBuying += 0;
             }
-             else if (Weather.todaysWeather == weather.weatherOptions[8])
+             else if (Weather.todaysWeather == Weather.weatherOptions[8])
             {
-                chanceOfBuying -= 50/100;
+                chanceOfBuying -= 50;
             }
-              else if (Weather.todaysWeather == weather.weatherOptions[9])
+              else if (Weather.todaysWeather == Weather.weatherOptions[9])
             {
-                chanceOfBuying += 10/100;
+                chanceOfBuying += 10;
             }
 
 

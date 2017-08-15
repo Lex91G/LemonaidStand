@@ -18,7 +18,7 @@ namespace LemonaidStand
         {
 
         }   // call function to set howManyPeople
-        public void DetermineHowManyPeople(Weather weather)
+        public void DetermineHowManyPeople(Weather Weather)
         {
             
             if (Weather.todaysWeather == "Sunny")
@@ -85,17 +85,19 @@ namespace LemonaidStand
                 Customer customer = new Customer();
                 Game game = new Game();
                
-                int dailyPeople = random.Next(1, 100);
-                if (dailyPeople > 50)
+                Customer.chanceOfBuying = random.Next(1, 100);
+                if (Customer.chanceOfBuying > 50)
                 {
-                    SetALimitToBuy();
+                    
                     customer.CupsSold++;
+
                 }
 
                 else
                 {
 
                 }
+               
                 custumers.Add(customer);
             }
         } 

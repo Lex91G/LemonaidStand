@@ -69,6 +69,7 @@ namespace LemonaidStand
             player.backpack.cup.RemoveRange(1, 1); 
             Customer.chanceOfBuying =+ 8;
             return secondBest;
+            
         }
         
         public Recipe CreateSugarLemonaid(Player player)
@@ -107,16 +108,19 @@ namespace LemonaidStand
             Recipe createYourOwn = new Recipe();
             Console.WriteLine("How many lemons: ");
             int creatingLemons = int.Parse(Console.ReadLine());
-            createYourOwn.lemons = creatingLemons;
+            player.backpack.cup.RemoveRange(1, creatingLemons);
+            IfElseLemonLikelyness();
 
 
             Console.WriteLine("How many cups of sugar: ");
             int creatingSugar = int.Parse(Console.ReadLine());
-            createYourOwn.sugar = creatingSugar;
+            player.backpack.cup.RemoveRange(1, creatingSugar);
+            IfElseSugarLikelyNess();
 
             Console.WriteLine("How many ice Cubes: ");
             int creatingice = int.Parse(Console.ReadLine());
-            createYourOwn.ice = creatingice;
+            player.backpack.cup.RemoveRange(1, creatingice);
+            IfElseIceLikelyNess();
 
             createYourOwn.cups = 1;
             return createYourOwn;
