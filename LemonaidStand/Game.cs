@@ -178,7 +178,7 @@ namespace LemonaidStand
             HowMuchPerCup();
             day.SetALimitToBuy();
             day.runLoop();
-            Console.WriteLine(customer.CupsSold);
+            Console.WriteLine(customer. CupsSold);
             Console.ReadLine();
             
 

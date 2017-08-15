@@ -84,11 +84,11 @@ namespace LemonaidStand
             {
                 Customer customer = new Customer();
                 Game game = new Game();
-               
-                Customer.chanceOfBuying = random.Next(1, 100);
+
+                Customer.chanceOfBuying = random.Next(1, Customer.chanceOfBuying);
                 if (Customer.chanceOfBuying > 50)
                 {
-                    
+
                     customer.CupsSold++;
 
                 }
@@ -97,9 +97,10 @@ namespace LemonaidStand
                 {
 
                 }
-               
+
                 custumers.Add(customer);
             }
-        } 
+            
+        }
     }
 }

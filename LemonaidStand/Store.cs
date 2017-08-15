@@ -30,13 +30,16 @@ namespace LemonaidStand
                     break;
                 case "2":
                     IceBuy();
+                    BuyProducts(player);
                     break;
 
                 case "3":
                     LemonBuy();
+                    BuyProducts(player);
                     break;
                 case "4":
                     SugarBuy();
+                    BuyProducts(player);
                     break;
                 case "5":
                     Game game = new Game();
